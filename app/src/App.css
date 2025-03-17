@@ -1,0 +1,190 @@
+/* --- Contenedor Principal --- */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 15px;
+  color: white;
+}
+
+/* --- Encabezado (Navbar) --- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #FFFFFF;
+  flex-wrap: wrap;
+}
+
+/* --- Menú de navegación --- */
+.items-container {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+/* --- Sección Principal --- */
+.home-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* --- Texto principal --- */
+.home-main-text {
+  width: 100%;
+  color: #FFFFFF;
+}
+
+.title-main {
+  margin-top: 40px;
+  font-weight: 900;
+  font-size: 2rem;
+}
+
+/* --- Imagen Principal --- */
+.home-main-img {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.image-main {
+  width: 90%;
+  max-width: 500px;
+  height: auto;
+  object-fit: cover;
+}
+
+/* --- Contenedor del botón --- */
+.btton-container {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* --- Botón de contacto --- */
+.contactButton {
+  background: #7079f0;
+  color: white;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  padding: 0.6em 1.5em;
+  box-shadow: inset 0 0 1.6em -0.6em #714da6;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.iconButton {
+  margin-left: 10px;
+  width: 2.2em;
+  height: 2.2em;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #7a8cf3;
+  transition: all 0.3s;
+}
+
+/* --- Efectos del botón --- */
+.contactButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0.2em 0.2em #5566c2;
+}
+
+.contactButton:active {
+  transform: scale(0.95);
+  box-shadow: 0.05em 0.05em #5566c2;
+}
+
+/* --- Contenedor de marcas (responsivo) --- */
+.marcas-container {
+  background-color: #4e5368;
+  max-width: 100%;
+  height: auto;
+  margin-top: 30px;
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-radius: 15px;
+}
+
+.marcas-container .image-marca {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* --- MEDIA QUERIES PARA RESPONSIVE DESIGN --- */
+
+/* Para tablets y pantallas medianas */
+@media (max-width: 1024px) {
+  .title-main {
+    font-size: 1.8rem;
+  }
+
+  .items-container {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .image-main {
+    max-width: 400px;
+  }
+}
+
+/* Para móviles */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .items-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .title-main {
+    font-size: 1.5rem;
+  }
+
+  .image-main {
+    max-width: 300px;
+  }
+
+  .contactButton {
+    font-size: 0.9rem;
+    padding: 0.5em 1.2em;
+  }
+
+  .marcas-container .image-marca {
+    width: 80px;
+  }
+}
