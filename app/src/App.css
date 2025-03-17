@@ -140,6 +140,29 @@ a {
   object-fit: contain;
 }
 
+/* --- Estilos para el secciones --- */
+#secc-productos {
+  text-align: center;
+  padding: 50px 20px;
+  margin-top: 15px;
+  border-radius: 20px;
+  background-color: #4e5368; /* Fondo oscuro */
+}
+
+#secc-productos h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center; /* Centrar productos */
+  max-width: 1200px;
+  margin: 0 auto; /* Centrar en la pantalla */
+}
+
 /* --- MEDIA QUERIES PARA RESPONSIVE DESIGN --- */
 
 /* Para tablets y pantallas medianas */
@@ -186,5 +209,17 @@ a {
 
   .marcas-container .image-marca {
     width: 80px;
+  }
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+  #secc-productos h2 {
+      font-size: 1.5rem;
+  }
+
+  .products-container {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
   }
 }

@@ -6,8 +6,12 @@ import apple from './assets/apple.png';
 import samsung from './assets/samsung.png';
 import motorola from './assets/motorola.png';
 import xiaomi from './assets/xiaomi.png';
+import Products from './components/Products';
+import { db } from "./config/firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 function TypewriterEffect({ text, speed = 100 }) {
+
   const [displayedText, setDisplayedText] = useState('');
   const [index, setIndex] = useState(0);
 
@@ -20,18 +24,36 @@ function TypewriterEffect({ text, speed = 100 }) {
       return () => clearTimeout(timeout);
     }
   }, [index, text, speed]);
-
   return <h1>{displayedText}</h1>;
 }
 
 function App() {
+  const [producto, setProduct] = useState([]);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "productos_servicel"));
+        const productosArray = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        console.log("Productos obtenidos:", productosArray);
+        setProduct(productosArray);
+      } catch (error) {
+        console.error("Error al obtener los productos:", error);
+      }
+    };
+    getProducts();
+  }, []);
+
   return (
     <>
       {/* Encabezado con efecto de máquina de escribir */}
       <div className="header">
         <TypewriterEffect text="Servicel Salamá" speed={150} />
         <div className="items-container">
-          <a href="">Productos</a>
+          <a href="#secc-productos">Productos</a>
           <a href="">Servicios</a>
           <a href="">Galería</a>
           <a href="">Acerca de</a>
@@ -105,12 +127,17 @@ function App() {
         <img className='image-marca' src={xiaomi} alt="logo xiaomi" />
       </div>
 
-      {/* seccion productos */}
-      <section id='productos'>
-        <h2 color='#FFFfff'>Algunos Productos</h2>
+      {/* Sección de productos */}
+      <section id='secc-productos'>
+        <h2 style={{ color: '#FFFFFF' }}>Algunos Productos</h2>
         <div className="products-container">
-
+          {producto.length > 0 ? (
+            producto.map((item) => <Products key={item.id} producto={item} />)
+          ) : (
+            <p>Cargando productos...</p>
+          )}
         </div>
+
       </section>
 
       {/* seccion servicios */}
