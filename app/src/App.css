@@ -11,7 +11,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #FFFFFF;
+  color: #ffffff;
   flex-wrap: wrap;
 }
 
@@ -28,7 +28,7 @@
 
 a {
   text-decoration: none;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
 }
 
@@ -44,7 +44,7 @@ a {
 /* --- Texto principal --- */
 .home-main-text {
   width: 100%;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .title-main {
@@ -163,6 +163,106 @@ a {
   margin: 0 auto; /* Centrar en la pantalla */
 }
 
+/* estilos para nuestros servicios*/
+/* Estilo global para la sección de servicios */
+#servicios {
+  padding: 50px 20px;
+  text-align: center;
+  color: white;
+}
+
+#servicios h2 {
+  color: #fff;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+#servicios p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #fff;
+  margin-bottom: 40px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Contenedor de los servicios */
+.servicios-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.image-servicios {
+  flex: 1;
+  max-width: 300px;
+  padding: 10px;
+}
+
+.image-servicios img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.text-servicios {
+  flex: 2;
+  max-width: 500px;
+  padding: 20px;
+}
+
+.text-servicios h3 {
+  font-size: 1.8em;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.text-servicios p {
+  font-size: 1.1em;
+  color: #7f8c8d;
+  line-height: 1.6;
+}
+
+/* Efectos visuales para hacer la sección más atractiva */
+.servicios-container:hover {
+  background-color: #4e5368;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.text-servicios h3 {
+  color: #3498db;
+}
+
+.resaltar-parrafo {
+  color: #3498db;
+}
+
+.footer {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .servicios-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image-servicios,
+  .text-servicios {
+    max-width: 100%;
+    padding: 10px;
+  }
+}
+
 /* --- MEDIA QUERIES PARA RESPONSIVE DESIGN --- */
 
 /* Para tablets y pantallas medianas */
@@ -215,11 +315,11 @@ a {
 /* Diseño responsivo */
 @media (max-width: 768px) {
   #secc-productos h2 {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
 
   .products-container {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
   }
 }
