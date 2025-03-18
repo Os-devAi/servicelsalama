@@ -210,7 +210,7 @@ function App() {
         <div className="servicios-container">
           <div className="image-servicios">
             <img
-              src="https://comocomprar.cl/wp-content/uploads/2022/08/Desbloquear-Celular.png"
+              src="https://www.cicap.edu.mx/cursosenlinea/wp-content/uploads/2022/08/celll-850x560.png"
               alt="reparaciones"
             />
           </div>
