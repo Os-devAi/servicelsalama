@@ -1,0 +1,27 @@
+/* Contenedor de la página o del contenedor padre */
+.parent-container {
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center; /* Centrado vertical */
+  min-height: 100vh; /* Para que ocupe toda la altura de la ventana */
+}
+
+/* Contenedor responsivo */
+.iframe-container {
+  position: relative;
+  width: 50%;
+  padding-bottom: 56.25%; /* Relación de aspecto 16:9 (56.25% = 9/16 * 100) */
+  height: 0;
+  overflow: hidden;
+  max-width: 90%;
+  border-radius: 15px; /* Borde redondeado */
+}
+
+/* Estilo del iframe dentro del contenedor */
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+  border-radius: 15px; /* También aplicamos border-radius al iframe */
+}
