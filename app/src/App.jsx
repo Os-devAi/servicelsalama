@@ -30,6 +30,8 @@ function TypewriterEffect({ text, speed = 100 }) {
 
 function App() {
   const [producto, setProduct] = useState([]);
+  const [nombre, setNombre] = useState("");
+  const [texto, setTexto] = useState("");
 
   useEffect(() => {
     const getProducts = async () => {
@@ -50,6 +52,29 @@ function App() {
     getProducts();
   }, []);
 
+  const handelSubmitConsulta = async (e) => {
+    e.preventDefault(); // Evita que la página se recargue al enviar el formulario
+
+    if (!nombre || !texto) {
+      alert("Por favor escribe tu nombre y tu mensaje.");
+      return;
+    }
+
+    // Construcción del mensaje
+    let message = "Buenos días\n";
+    message += "Cliente: " + nombre + "\n";
+    message += "Consulta: " + texto + "\n";
+
+    // Codificar el mensaje para la URL
+    const encodedMessage = encodeURIComponent(message);
+
+    // Construir la URL de WhatsApp
+    const whatsappUrl = `https://wa.me/50257471313?text=${encodedMessage}`;
+
+    // Abrir en una nueva pestaña
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <>
       {/* Encabezado con efecto de máquina de escribir */}
@@ -58,8 +83,7 @@ function App() {
         <div className="items-container">
           <a href="#secc-productos">Productos</a>
           <a href="#servicios">Servicios</a>
-          <a href="">Galería</a>
-          <a href="">Acerca de</a>
+          <a href="#ubicacion">Ubicación</a>
         </div>
       </div>
 
@@ -249,10 +273,10 @@ function App() {
       </section>
 
       {/* seccion galeria */}
-      <section id="productos">
+      {/* <section id="productos">
         <h2 color="#FFFfff">Galería</h2>
         <div className="products-container"></div>
-      </section>
+      </section> */}
 
       {/* seccion acerca de */}
       {/*<section id="productos">
@@ -282,36 +306,44 @@ function App() {
         </div>
       </section>
 
-      {/* seccion contacto */}
+      {/* Sección de contacto */}
       <section id="contacto">
-        <h2 color="#FFFfff">Contacto</h2>
+        <h2 style={{ color: "#FFFfff" }}>Contacto</h2>
         <div className="products-container">
-          <div class="form-container">
-            <form class="form">
-              <div class="form-group">
-                <label for="textarea">¿Cuál es tu nombre?</label>
-                <input type="text" id="nombre" name="nombre" required="" />
+          <div className="form-container">
+            <form className="form" onSubmit={handelSubmitConsulta}>
+              <div className="form-group">
+                <label htmlFor="nombre">¿Cuál es tu nombre?</label>
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  required
+                  value={nombre}
+                  onChange={(e) => setNombre(e.target.value)}
+                />
               </div>
-              <div class="form-group">
-                <label for="textarea">¿Cuál es tu consulta?</label>
+              <div className="form-group">
+                <label htmlFor="consulta">¿Cuál es tu consulta?</label>
                 <textarea
-                  name="textarea"
-                  id="textarea"
+                  name="consulta"
+                  id="consulta"
                   rows="10"
                   cols="50"
-                  required=""
-                >
-                  {" "}
-                </textarea>
+                  required
+                  value={texto}
+                  onChange={(e) => setTexto(e.target.value)}
+                />
               </div>
               <span>Tu consulta será enviada por WhatsApp</span>
-              <button class="form-submit-btn" type="submit">
+              <button className="form-submit-btn" type="submit">
                 Enviar
               </button>
             </form>
           </div>
         </div>
       </section>
+      {/* footer */}
       <section>
         <div className="footer">
           <p>
